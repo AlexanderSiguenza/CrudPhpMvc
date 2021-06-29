@@ -24,6 +24,7 @@ class AlumnoController{
         require_once 'view/alumno/alumno-editar.php';
         require_once 'view/footer.php';
     }
+
     
     public function Guardar(){
         $alm = new Alumno();        
@@ -33,9 +34,7 @@ class AlumnoController{
         $alm->Correo = $_REQUEST['Correo'];
         $alm->Sexo = $_REQUEST['Sexo'];
         $alm->FechaNacimiento = $_REQUEST['FechaNacimiento'];
-        $alm->id > 0 
-            ? $this->model->Actualizar($alm)
-            : $this->model->Registrar($alm);        
+        $alm->id > 0 ? $this->model->Actualizar($alm) : $this->model->Registrar($alm);        
         header('Location: index.php');
     }
     

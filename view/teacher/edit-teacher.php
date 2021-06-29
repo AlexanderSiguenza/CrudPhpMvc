@@ -1,41 +1,38 @@
 <h1 class="page-header">
-    <?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?>
+    <?php echo $tea->id != null ? $tea->nombres : 'Nuevo Registro'; ?>
 </h1>
 
 <ol class="breadcrumb">
-  <li><a href="?c=Alumno">Alumnos</a></li>
-  <li class="active"><?php echo $alm->id != null ? $alm->Nombre : 'Nuevo Registro'; ?></li>
+  <li><a href="?c=Teacher">Profesor</a></li>
+  <li class="active"><?php echo $tea->id != null ? $tea->nombres : 'Nuevo Registro'; ?></li>
 </ol>
 
-<form id="frm-alumno" action="?c=Alumno&a=Guardar" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="<?php echo $alm->id; ?>" />
+<form id="frm-teacher" action="?c=Teacher&a=Guardar" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="<?php echo $tea->id; ?>" />
     
     <div class="form-group">
-        <label>Nombre</label>
-        <input type="text" name="Nombre" value="<?php echo $alm->Nombre; ?>" class="form-control" placeholder="Ingrese su nombre" data-validacion-tipo="requerido|min:3" />
+        <label>Nombres</label>
+        <input type="text" name="nombre" value="<?php echo $tea->nombres; ?>" class="form-control" placeholder="Ingrese sus nombres" data-validacion-tipo="requerido" />
     </div>
     
     <div class="form-group">
-        <label>Apellido</label>
-        <input type="text" name="Apellido" value="<?php echo $alm->Apellido; ?>" class="form-control" placeholder="Ingrese su apellido" data-validacion-tipo="requerido|min:10" />
+        <label>Apellidos</label>
+        <input type="text" name="apellido" value="<?php echo $tea->apellidos; ?>" class="form-control" placeholder="Ingrese sus apellidos" data-validacion-tipo="requerido" />
     </div>
     
     <div class="form-group">
-        <label>Correo</label>
-        <input type="text" name="Correo" value="<?php echo $alm->Correo; ?>" class="form-control" placeholder="Ingrese su correo electrónico" data-validacion-tipo="requerido|email" />
+        <label>Telefono</label>
+        <input type="text" name="telefono" value="<?php echo $tea->telefono; ?>" class="form-control" placeholder="Ingrese su telefono" data-validacion-tipo="requerido" />
+    </div>
+
+    <div class="form-group">
+        <label>Edad</label>
+        <input  type="text" name="edad" value="<?php echo $tea->edad; ?>" class="form-control" placeholder="Ingrese su edad" data-validacion-tipo="requerido" />
     </div>
     
     <div class="form-group">
-        <label>Sexo</label>
-        <select name="Sexo" class="form-control">
-            <option <?php echo $alm->Sexo == 1 ? 'selected' : ''; ?> value="1">Masculino</option>
-            <option <?php echo $alm->Sexo == 2 ? 'selected' : ''; ?> value="2">Femenino</option>
-        </select>
-    </div>
-    
-    <div class="form-group">
-        <label>Fecha de nacimiento</label>
-        <input readonly type="text" name="FechaNacimiento" value="<?php echo $alm->FechaNacimiento; ?>" class="form-control datepicker" placeholder="Ingrese su fecha de nacimiento" data-validacion-tipo="requerido" />
+        <label>Dpi</label>
+        <input  type="text" name="dpi" value="<?php echo $tea->dpi; ?>" class="form-control" placeholder="Ingrese su dpi" data-validacion-tipo="requerido" />
     </div>
     
     <hr />
@@ -47,7 +44,7 @@
 
 <script>
     $(document).ready(function(){
-        $("#frm-alumno").submit(function(){
+        $("#frm-teacher").submit(function(){
             return $(this).validate();
         });
     })
